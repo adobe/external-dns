@@ -3,11 +3,9 @@
 # Declare variables to be passed into your templates.
 
 image:
-  # -- Image repository for the `external-dns` container.
-  repository: registry.k8s.io/external-dns/external-dns
-  # -- (string) Image tag for the `external-dns` container, this will default to `.Chart.AppVersion` if not set.
-  tag:
-  # -- Image pull policy for the `external-dns` container.
+  repository: ghcr.io/adobe/external-dns
+  # Overrides the image tag whose default is v{{ .Chart.AppVersion }}
+  tag: ""
   pullPolicy: IfNotPresent
 
 # -- Image pull secrets.
@@ -216,6 +214,7 @@ txtSuffix:
 ## - Limit possible target zones by domain suffixes.
 domainFilters: []
 
+<<<<<<< HEAD
 provider:
   # -- _ExternalDNS_ provider name; for the available providers and how to configure them see [README](https://github.com/kubernetes-sigs/external-dns/blob/master/charts/external-dns/README.md#providers).
   name: aws
@@ -272,6 +271,12 @@ provider:
       relabelings: []
 
 # -- Extra arguments to provide to _ExternalDNS_.
+=======
+provider: aws
+
+watchNamespaces: []
+
+>>>>>>> Added support for multi-namespace watch on services and made nodeInformer optional for service source (#1)
 extraArgs: []
 
 secretConfiguration:
