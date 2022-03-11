@@ -7,7 +7,7 @@
 Before you can install the chart you will need to add the `external-dns` repo to [Helm](https://helm.sh/).
 
 ```shell
-helm repo add external-dns https://kubernetes-sigs.github.io/external-dns/
+helm repo add external-dns https://adobe.github.io/external-dns/
 ```
 
 After you've installed the repo you can install the chart.
