@@ -7,7 +7,7 @@
 Before you can install the chart you will need to add the `external-dns` repo to [Helm](https://helm.sh/).
 
 ```shell
-helm repo add external-dns https://kubernetes-sigs.github.io/external-dns/
+helm repo add external-dns https://adobe.github.io/external-dns/
 ```
 
 After you've installed the repo you can install the chart.
@@ -69,6 +69,7 @@ The following table lists the configurable parameters of the _ExternalDNS_ chart
 | `txtPrefix`                       | Prefix to create a TXT record with a name following the pattern `prefix.<CNAME record>`.                                                                                                                                                                                                                              | `""`                                        |
 | `domainFilters`                   | Limit possible target zones by domain suffixes.                                                                                                                                                                                                                                                                       | `[]`                                        |
 | `provider`                        | DNS provider where the DNS records will be created, for the available providers and how to configure them see the [README](https://github.com/kubernetes-sigs/external-dns#deploying-to-a-cluster) (this can be templated).                                                                                           | `aws`                                       |
+| `watchNamespaces`                 | List of namespaces to be observed for new DNS entries.                                                                                                                                                                                                                                                                | `[]`                                        |
 | `extraArgs`                       | Extra arguments to pass to the _external-dns_ container, these are needed for provider specific arguments (these can be templated).                                                                                                                                                                                   | `[]`                                        |
 | `deploymentStrategy`              | .spec.strategy of the external-dns Deployment. Defaults to 'Recreate' since multiple external-dns pods may conflict with each other.                                                                                                                                                                                  | `{type: Recreate}`                          |
 | `secretConfiguration.enabled`     | Enable additional secret configuration.                                                                                                                                                                                                                                                                               | `false`                                     |
