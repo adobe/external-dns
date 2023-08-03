@@ -459,13 +459,14 @@ func (sc *virtualServiceSource) targetsFromGateway(ctx context.Context, gateway 
 		return
 	}
 
-	services, err := sc.serviceInformer.Lister().Services(sc.namespace).List(labels.Everything())
+	// Use kubeclient instead of informers to fetch services from gateway namespace
+	services, err := sc.kubeClient.CoreV1().Services(gateway.Namespace).List(ctx, metav1.ListOptions{})
 	if err != nil {
 		log.Error(err)
 		return
 	}
 
-	for _, service := range services {
+	for _, service := range services.Items {
 		if !gatewaySelectorMatchesServiceSelector(gateway.Spec.Selector, service.Spec.Selector) {
 			continue
 		}
