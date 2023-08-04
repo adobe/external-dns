@@ -35,6 +35,37 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: changed
+          description: "Updated _ExternalDNS_ version to [v0.13.5](https://github.com/kubernetes-sigs/external-dns/releases/tag/v0.13.5)."
+        - kind: changed
+          description: "Adding missing gateway-httproute cluster role permission."
+    apiVersion: v2
+    appVersion: 0.13.5-20230727-1700-adobe
+    created: "2023-08-04T10:08:26.654714152Z"
+    description: ExternalDNS synchronizes exposed Kubernetes Services and Ingresses
+      with DNS providers.
+    digest: eaa68b52266e8c2669e24be33c8954541adc5b1a38c5d7b50a8ab142370fda0d
+    home: https://github.com/kubernetes-sigs/external-dns/
+    icon: https://github.com/kubernetes-sigs/external-dns/raw/master/docs/img/external-dns.png
+    keywords:
+    - kubernetes
+    - externaldns
+    - external-dns
+    - dns
+    - service
+    - ingress
+    maintainers:
+    - email: steve.hipwell@gmail.com
+      name: stevehipwell
+    name: external-dns
+    sources:
+    - https://github.com/kubernetes-sigs/external-dns/
+    type: application
+    urls:
+    - https://github.com/adobe/external-dns/releases/download/external-dns-helm-chart-1.13.0-20230727-1700-adobe/external-dns-1.13.0-20230727-1700-adobe.tgz
+    version: 1.13.0-20230727-1700-adobe
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
           description: "Updated ExternalDNS version to v0.13.2."
     apiVersion: v2
     appVersion: 0.13.2-20230123-2320-adobe
@@ -558,4 +589,4 @@ entries:
     urls:
     - https://github.com/kubernetes-sigs/external-dns/releases/download/external-dns-helm-chart-1.2.0/external-dns-1.2.0.tgz
     version: 1.2.0
-generated: "2023-07-31T19:26:15.267448446Z"
+generated: "2023-08-04T10:08:26.654827952Z"
