@@ -83,7 +83,6 @@ spec:
             - --namespace={{ .Release.Namespace }}
             {{- end }}
             {{- end }}
-            {{- end }}
             {{- range .Values.sources }}
             - --source={{ . }}
             {{- end }}
