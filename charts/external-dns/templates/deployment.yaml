@@ -76,12 +76,13 @@ spec:
             {{- if .Values.awsPreferCname }}
             - --aws-prefer-cname
             {{- end }}
-            {{- if .Values.namespaced  }}
-            {{- range .Values.watchNamespaces }}
-            - --namespace={{ . }}
-            {{- end }}
-            {{ else }}
+            {{- if or .Values.namespaced .Values.watchNamespaces }}
+            {{- if .Values.watchNamespaces }}
+            - --namespace={{ .Values.watchNamespaces | join "," }}
+            {{- else }}
             - --namespace={{ .Release.Namespace }}
+            {{- end }}
+            {{- end }}
             {{- end }}
             {{- range .Values.sources }}
             - --source={{ . }}
