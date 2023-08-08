@@ -87,8 +87,13 @@ spec:
             {{- if .Values.awsPreferCname }}
             - --aws-prefer-cname
             {{- end }}
+            {{- if or .Values.namespaced .Values.watchNamespaces }}
             {{- if .Values.watchNamespaces }}
             - --namespace={{ .Values.watchNamespaces | join "," }}
+            {{- else }}
+            - --namespace={{ .Release.Namespace }}
+            {{- end }}
+            {{- end }}
             {{- end }}
             {{- range .Values.sources }}
             - --source={{ . }}
@@ -103,9 +108,6 @@ spec:
             {{- end }}
             {{- if and (eq .Values.txtPrefix "") (ne .Values.txtSuffix "") }}
             - --txt-suffix={{ .Values.txtSuffix }}
-            {{- end }}
-            {{- if .Values.namespaced }}
-            - --namespace={{ .Release.Namespace }}
             {{- end }}
             {{- range .Values.domainFilters }}
             - --domain-filter={{ . }}
