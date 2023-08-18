@@ -162,6 +162,9 @@ sources:
 
 policy: upsert-only
 
+# Filters out resources based on annotations
+annotationFilter: ""
+
 # Specifies the registry for storing ownership and labels.
 # Valid values are "aws-sd", "noop", "dynamodb", and "txt".
 registry: txt
