@@ -94,6 +94,9 @@ spec:
             {{- if .Values.txtPrefix }}
             - --txt-prefix={{ .Values.txtPrefix }}
             {{- end }}
+            {{- if .Values.annotationFilter }}
+            - --annotationFilter={{ .Values.annotationFilter }}
+            {{- end }}
             {{- if and (eq .Values.txtPrefix "") (ne .Values.txtSuffix "") }}
             - --txt-suffix={{ .Values.txtSuffix }}
             {{- end }}
